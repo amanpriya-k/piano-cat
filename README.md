@@ -32,28 +32,28 @@ Bonus:
 
 ## Timeline
 
-Day 1 - 10/29/18  
+#### Day 1 - 10/29/18  
   - [ ] Setup webpack, entry file, and project skeleton
   - [ ] Review canvas and plan how to design virtual piano
   - [ ] Set up divs that correspond to piano keys and connect to keyboard
   - [ ] Render keys
 
-Day 2 - 10/30/18  
+#### Day 2 - 10/30/18  
   - [ ] Animate keys so they light up according to whether the correct key was played or not
   - [ ] Style layout of site, set up the player screen and instructions screen html elements
   - [ ] Create outline for switching to different game levels
 
-Day 3 - 10/31/18  
+#### Day 3 - 10/31/18  
   - [ ] Hard code in a basic set of levels
   - [ ] Display corresponding instructions and keys for a level
   - [ ] Set up level functionality, so users playing the correct keys completes a level
 
-Day 4 - 11/01/18  
+#### Day 4 - 11/01/18  
   - [ ] Users completing a level automatically loads the next level
   - [ ] Users incorrectly playing the keys restarts the level
   - [ ] Hardcode another set of levels for another song
 
-Day 5 - 11/02/18  
+#### Day 5 - 11/02/18  
   - [ ] Improve styling
   - [ ] Add interesting visuals for completing levels
   - [ ] Add Github and Linkedin links
