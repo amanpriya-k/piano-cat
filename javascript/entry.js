@@ -11,4 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ctx = canvasEl.getContext('2d'); 
   const main = new Main();
   main.draw(ctx);
+
+  document.addEventListener('keydown', 
+      (e) => main.onKeyDown(e, ctx))
 });
