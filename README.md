@@ -30,6 +30,10 @@ Bonus:
 - HTML5 Canvas for rendering
 - Webpack to bundle various scripts into a single source
 
+## Wireframe
+
+![wireframe](https://github.com/amanpriya-k/piano-cat/blob/master/wireframe.png)
+
 ## Timeline
 
 #### Day 1 - 10/29/18  
