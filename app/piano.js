@@ -1,15 +1,15 @@
 import Key from './key';
 
-class Main {
+class Piano {
 
   constructor() {
     this.keys = {};
     this.addKeys();
-    this.onKeyDown = this.onKeyDown.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
-  onKeyDown(e, ctx) {
-    switch(e.key) {
+  handleKeyDown(key, ctx) {
+    switch (key) {
       case "s":
         this.keys.c.onKeyDown(ctx);
         break;
@@ -65,9 +65,6 @@ class Main {
   }
 
   draw(ctx) {
-    // ctx.fillStyle = "yellow";
-    // ctx.fillRect(0, 0, 800, 400);
-
     Object.values(this.keys).forEach((key) => {
       key.draw(ctx);
     });
@@ -75,4 +72,4 @@ class Main {
 
 }
 
-export default Main;
+export default Piano;

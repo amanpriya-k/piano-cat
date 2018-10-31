@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+    <link rel="icon" href="./assets/images/catty.png">
+</head>
+<body>
+    <div class="main-div">
+        <div class="instructions" id="instructions">
+            <h1>Learn Piano!</h1>
+            <img src="./assets/images/cat-w-textbox.png">
+            <div class="instructions-box" id="instructions-el"></div>
+            <button id="start-btn"> start </button>
+        </div>
+    
+        <div class="canvas-container">
+            <canvas width="470" height="210" id="canvas"></canvas>
+        </div>
+    </div>
+</body>
+</html>
