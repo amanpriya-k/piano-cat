@@ -5,15 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="application/javascript" src="javascript/bundle.js"></script>
+    <link rel="stylesheet" type="text/css" href="./assets/css/index.css">
+    <link rel="icon" href="./assets/images/catty.png">
     <title>Piano Cat</title>
   </head>
 
   <body>
     
-    <div style="display: flex">
-      <div id="root"></div>
-      <div style="padding: 50px">
-        <canvas width="800" height="400" id="canvas"></canvas>
+    <div class="main-div">
+      <div class="instructions" id="instructions"> 
+        <img src="./assets/images/catty.png">
+      </div>
+
+      <div class="canvas-container">
+        <canvas width="470" height="210" id="canvas"></canvas>
       </div>
     </div>
     

@@ -97,13 +97,9 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main */ "./javascript/main.js");
 
-// const Main = require('./main');
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log('webpack is working!');
-
-  const root = document.getElementById('root');
-  root.innerHTML = 'from entry file';
 
   const canvasEl = document.getElementById('canvas');
   const ctx = canvasEl.getContext('2d'); 
@@ -133,35 +129,42 @@ class Key {
     this.ypos = ypos;
     this.note = note;
     this.color = color;
+
+    this.audio = new Audio();
+    this.audio.src = `./assets/sounds/${this.note}.wav`;
+
     this.onKeyDown = this.onKeyDown.bind(this);
     this.draw = this.draw.bind(this);
   };
+
 
   onKeyDown(ctx) {
     const keyImg = new Image();
     keyImg.src = "./assets/images/spritesheet.png";
 
+    this.audio.play();
+
     keyImg.onload = () => {
       if (this.color === "white") {
-        debugger
         ctx.drawImage(keyImg, 100, 0, 70, 300, this.xpos, this.ypos, 50, 200);
       }
       else {
         ctx.drawImage(keyImg, 440, 0, 50, 300, this.xpos, this.ypos, 35, 200);
       }
     }
-    window.setTimeout( () => this.draw(ctx), 500 );
+    window.setTimeout( () => this.draw(ctx), 400 );
   }
 
+
+
+
   draw(ctx) {
-    debugger
     const keyImg = new Image();
     keyImg.src = "./assets/images/spritesheet.png";
 
     keyImg.onload = () => {
       if (this.color === "white") {
         ctx.clearRect(this.xpos, this.ypos, 50, 200);
-        debugger
         ctx.drawImage(keyImg, 0, 0, 70, 300, this.xpos, this.ypos, 50, 200);
       } 
       else {
@@ -208,7 +211,7 @@ class Main {
       case "f":
         this.keys.d.onKeyDown(ctx);
         break;
-      case "r":
+      case "t":
         this.keys.dS.onKeyDown(ctx);
         break;
       case "g":
@@ -239,21 +242,24 @@ class Main {
   }
 
   addKeys() {
-    this.keys.c = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](0, 0, "C", "white");
-    this.keys.cS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](50, 0, "C#", "black")
-    this.keys.d = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](73, 0, "D", "white")
-    this.keys.dS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](123, 0, "D#", "black")
-    this.keys.e = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](146, 0, "E", "white")
-    this.keys.f = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](196, 0, "F", "white")
-    this.keys.fS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](246, 0, "F#", "black")
-    this.keys.g = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](269, 0, "G", "white")
-    this.keys.gS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](319, 0, "G#", "black")
-    this.keys.a = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](342, 0, "A", "white")
-    this.keys.aS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](392, 0, "A#", "black")
-    this.keys.b = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](415, 0, "B", "white")
+    this.keys.c = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](0, 0, "c", "white");
+    this.keys.cS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](50, 0, "csharp", "black")
+    this.keys.d = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](73, 0, "d", "white")
+    this.keys.dS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](123, 0, "dsharp", "black")
+    this.keys.e = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](146, 0, "e", "white")
+    this.keys.f = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](196, 0, "f", "white")
+    this.keys.fS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](246, 0, "fsharp", "black")
+    this.keys.g = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](269, 0, "g", "white")
+    this.keys.gS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](319, 0, "gsharp", "black")
+    this.keys.a = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](342, 0, "a", "white")
+    this.keys.aS = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](392, 0, "asharp", "black")
+    this.keys.b = new _key__WEBPACK_IMPORTED_MODULE_0__["default"](415, 0, "b", "white")
   }
 
   draw(ctx) {
+    // ctx.fillStyle = "yellow";
+    // ctx.fillRect(0, 0, 800, 400);
+
     Object.values(this.keys).forEach((key) => {
       key.draw(ctx);
     });

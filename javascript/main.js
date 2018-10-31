@@ -19,7 +19,7 @@ class Main {
       case "f":
         this.keys.d.onKeyDown(ctx);
         break;
-      case "r":
+      case "t":
         this.keys.dS.onKeyDown(ctx);
         break;
       case "g":
@@ -50,21 +50,24 @@ class Main {
   }
 
   addKeys() {
-    this.keys.c = new Key(0, 0, "C", "white");
-    this.keys.cS = new Key(50, 0, "C#", "black")
-    this.keys.d = new Key(73, 0, "D", "white")
-    this.keys.dS = new Key(123, 0, "D#", "black")
-    this.keys.e = new Key(146, 0, "E", "white")
-    this.keys.f = new Key(196, 0, "F", "white")
-    this.keys.fS = new Key(246, 0, "F#", "black")
-    this.keys.g = new Key(269, 0, "G", "white")
-    this.keys.gS = new Key(319, 0, "G#", "black")
-    this.keys.a = new Key(342, 0, "A", "white")
-    this.keys.aS = new Key(392, 0, "A#", "black")
-    this.keys.b = new Key(415, 0, "B", "white")
+    this.keys.c = new Key(0, 0, "c", "white");
+    this.keys.cS = new Key(50, 0, "csharp", "black")
+    this.keys.d = new Key(73, 0, "d", "white")
+    this.keys.dS = new Key(123, 0, "dsharp", "black")
+    this.keys.e = new Key(146, 0, "e", "white")
+    this.keys.f = new Key(196, 0, "f", "white")
+    this.keys.fS = new Key(246, 0, "fsharp", "black")
+    this.keys.g = new Key(269, 0, "g", "white")
+    this.keys.gS = new Key(319, 0, "gsharp", "black")
+    this.keys.a = new Key(342, 0, "a", "white")
+    this.keys.aS = new Key(392, 0, "asharp", "black")
+    this.keys.b = new Key(415, 0, "b", "white")
   }
 
   draw(ctx) {
+    // ctx.fillStyle = "yellow";
+    // ctx.fillRect(0, 0, 800, 400);
+
     Object.values(this.keys).forEach((key) => {
       key.draw(ctx);
     });
