@@ -37,12 +37,12 @@ Bonus:
 ## Timeline
 
 #### Day 1 - 10/29/18  
-  - [ ] Setup webpack, entry file, and project skeleton
-  - [ ] Review canvas and plan how to design virtual piano
-  - [ ] Set up divs that correspond to piano keys and connect to keyboard
+  - [x] Setup webpack, entry file, and project skeleton
+  - [x] Review canvas and plan how to design virtual piano
+  - [x] Set up divs that correspond to piano keys and connect to keyboard
 
 #### Day 2 - 10/30/18  
-  - [ ] Render keys
+  - [x] Render keys
   - [ ] Animate keys so they light up according to whether the correct key was played or not
   - [ ] Style layout of site, set up the player screen and instructions screen html elements
   - [ ] Create outline for switching to different game levels
