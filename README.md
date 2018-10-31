@@ -16,7 +16,7 @@
 - Players can choose a normal mode or a timed mode where they have limited time for each level
 
 ## MVPs
-- [ ] The keyboard keys are linked to the virtual piano keys, they play the appropriate note and change color when they are played.
+- [x] The keyboard keys are linked to the virtual piano keys, they play the appropriate note and change color when they are played.
 - [ ] The instructions are shown on one side of the screen and the corresponding keys that should be played are signified. 
 - [ ] When they are correctly played, the user automatically completes the level, and has the option to move to the next level.
 - [ ] The user has the option to select the difficulty & speed of the tutorials, and there are different songs you can learn to play
