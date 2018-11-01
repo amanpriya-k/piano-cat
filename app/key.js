@@ -1,10 +1,12 @@
 class Key {
 
-  constructor(xpos, ypos, note, color) {
+  constructor(xpos, ypos, note, name, color, key) {
     this.xpos = xpos;
     this.ypos = ypos;
     this.note = note;
+    this.name = name;
     this.color = color;
+    this.key = key;
     
     this.audio = new Audio();
     this.audio.src = `../assets/sounds/${this.note}.wav`;
@@ -15,7 +17,7 @@ class Key {
   };
 
 
-  onKeyDown(ctx) {
+  onKeyDown(ctx, newColor) {
     if (!this.audio) return;
     this.audio.currentTime = 0;
     this.audio.play();
@@ -23,16 +25,29 @@ class Key {
     this.image = new Image();
     this.image.src = "../assets/images/spritesheet.png";
     
+    const letter = document.getElementById('letter-shower');
+    letter.innerHTML = this.name;
     
     this.image.onload = () => {
       if (this.color === "white") {
-        ctx.drawImage(this.image, 100, 0, 70, 300, this.xpos, this.ypos, 50, 200);
+        if (newColor == "green") {
+          ctx.drawImage(this.image, 100, 0, 70, 300, this.xpos, this.ypos, 50, 200);
+        } else {
+          ctx.drawImage(this.image, 200, 0, 70, 300, this.xpos, this.ypos, 50, 200);
+        }
       }
       else {
-        ctx.drawImage(this.image, 440, 0, 50, 300, this.xpos, this.ypos, 35, 200);
+        if (newColor == "green") {
+          ctx.drawImage(this.image, 440, 0, 50, 300, this.xpos, this.ypos, 35, 200);
+        } else {
+          ctx.drawImage(this.image, 503, 0, 50, 300, this.xpos, this.ypos, 35, 200);
+        }
       }
     }
-    window.setTimeout(() => this.draw(ctx), 200 );
+    window.setTimeout(() => {
+      this.draw(ctx);
+      letter.innerHTML = '';
+    }, 200);
   }
 
 

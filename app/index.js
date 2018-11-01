@@ -19,10 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const canvasEl = document.getElementById('canvas');
   const ctx = canvasEl.getContext('2d');
 
-  const instructionsEl = document.getElementById('instructions-el');
   const startBtnEl = document.getElementById('start-btn');
 
-  const level = new Level(LEVELS[0], ctx, instructionsEl, startBtnEl);
+  const level = new Level(LEVELS[0], ctx);
   startBtnEl.addEventListener('click', level.play);
 
 });

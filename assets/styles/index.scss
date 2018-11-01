@@ -1,6 +1,6 @@
 body {
   // background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(254,187,187,1) 100%);
-  background: url('../images/gradient.png');
+  background: url('../images/Relay.jpg');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -10,33 +10,53 @@ body {
   justify-content: space-between;
 }
 
+.header {
+  height: 80px;
+  width: 100%;
+  background: #212021;
+  text-align: center;
+}
+
+.header h1 {
+  font-family: 'Hammersmith One';
+  color: #BD246C;
+  font-size: 50px;
+  padding-top: 15px;
+  text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
+}
+
 .instructions {
   width: 600px;
   height: 400px;
   position: relative;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.instructions h1 {
-  font-family: 'Hammersmith One';
-  font-size: 50px;
-  padding-top: 40px;
-  text-shadow:
-		-1px -1px 0 white,
-		1px -1px 0 white,
-		-1px 1px 0 white,
-		1px 1px 0 white;
-}
 
 .instructions img {
   position: absolute;
-  bottom: -50px;
+  bottom: -40px;
   left: -25px;
   width: 600px;
   z-index: -1;
 }
 
-.instructions button {
+.instructions-box {
+  font-family: 'Hammersmith One';
+  font-size: 17px;
+  width: 400px;
+  line-height: 2em;
+  text-align: center;
+}
+
+.start-btn {
   position: absolute;
   bottom: 3px;
   right: 160px;
@@ -45,27 +65,37 @@ body {
   border-radius: 20px;
   font-family: 'Hammersmith One';
   font-size: 20px;
-  transition: .2s;
+  transition: .5s;
 }
 
-.instructions button:hover {
+.start-btn:hover {
   cursor: pointer;
   background: lightcoral;
   color: white;
+}
+
+.start-btn-disabled {
+  position: absolute;
+  bottom: 3px;
+  right: 160px;
+  width: 110px;
+  height: 40px;
+  border-radius: 20px;
+  font-family: 'Hammersmith One';
+  font-size: 20px;
+  background: darkgrey;
+  color: white;
+  transition: .5s;
+}
+
+.start-btn-disabled:hover {
+  cursor: not-allowed;
 }
 
 .instructions button:focus, .instructions button:active {
   outline: none;
 }
 
-.instructions-box {
-  font-family: 'Hammersmith One';
-  font-size: 17px;
-  padding: 70px;
-  padding-top: 35px;
-  line-height: 2em;
-  text-align: center;
-}
 
 .canvas-container {
   width: 800px !important;
@@ -79,13 +109,37 @@ body {
 
 .canvas-container canvas {
   position: absolute;
-  bottom: 50px;
+  bottom: 100px;
   right: 120px ;
 }
 
 .canvas-container img {
   position: absolute;
   width: 550px;
-  bottom: 13px;
+  bottom: 33px;
   right: 105px;
+}
+
+.letter-shower {
+  font-family: "Hammersmith One";
+  font-size: 100px;
+  text-align: center;
+  padding-top: 20px;
+  padding-right: 30px;
+}
+
+.message-box {
+  text-align: center;
+  font-family: "Hammersmith One";
+  font-size: 30px;
+  padding-top: 30px;
+  color: #B03F90;
+}
+
+.bad {
+  color: #E75F23;
+}
+
+.good {
+  color: #16BD99;
 }
