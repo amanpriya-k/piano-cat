@@ -15,11 +15,12 @@ const LEVELS = [
 
 class Level {
   
-  constructor({ number, notes, instructions }, ctx) {
+  constructor({ number, notes, instructions }, ctx, ctx2) {
     this.number = number;
     this.notes = notes;
     this.instructions = instructions;
     this.ctx = ctx;
+    this.ctx2 = ctx2;
     this.instructionsEl = document.getElementById('instructions-el');
     this.startBtnEl = document.getElementById('start-btn');
     this.messageEl = document.getElementById('message-box');
@@ -30,10 +31,10 @@ class Level {
     this.startListening = this.startListening.bind(this);
 
     this.piano = new Piano();
-    this.piano.draw(ctx);
+    this.piano.draw(ctx, ctx2);
 
     document.addEventListener('keydown', (e) => {
-      this.piano.handleKeyDown(e.key, ctx, "green")
+      this.piano.handleKeyDown(e.key, ctx, ctx2, "green")
     }); 
   }
 
@@ -43,7 +44,6 @@ class Level {
   }
 
   demoSounds() {
-    debugger
     this.notes.forEach(
       (note, idx) => {
         let timeout = (idx + 1) * 1000;
@@ -61,7 +61,6 @@ class Level {
     this.startBtnEl.classList.add('start-btn-disabled');
 
     let nextLevel = new Level(LEVELS[this.number], this.ctx);
-    debugger
     this.startBtnEl.addEventListener(
       'click', nextLevel.play
     )
@@ -84,7 +83,7 @@ class Level {
         lettersPressed = [];
       }
 
-      this.piano.handleKeyDown(e.key, this.ctx, color);
+      this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
       if (lettersPressed.length === this.notes.length) {
         this.startBtnEl.disabled = false;
         this.startBtnEl.classList.add('start-btn');

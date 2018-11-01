@@ -17,7 +17,7 @@ class Key {
   };
 
 
-  onKeyDown(ctx, newColor) {
+  onKeyDown(ctx, ctx2, newColor) {
     if (!this.audio) return;
     this.audio.currentTime = 0;
     this.audio.play();
@@ -38,14 +38,14 @@ class Key {
       }
       else {
         if (newColor == "green") {
-          ctx.drawImage(this.image, 440, 0, 50, 300, this.xpos, this.ypos, 35, 200);
+          ctx2.drawImage(this.image, 440, 0, 50, 300, this.xpos, this.ypos+1, 50, 140);
         } else {
-          ctx.drawImage(this.image, 503, 0, 50, 300, this.xpos, this.ypos, 35, 200);
+          ctx2.drawImage(this.image, 503, 0, 50, 300, this.xpos, this.ypos+1, 50, 140);
         }
       }
     }
     window.setTimeout(() => {
-      this.draw(ctx);
+      this.draw(ctx, ctx2);
       letter.innerHTML = '';
     }, 200);
   }
@@ -53,7 +53,7 @@ class Key {
 
 
 
-  draw(ctx) {
+  draw(ctx, ctx2) {
     this.image = new Image();
     this.image.src = "../assets/images/spritesheet.png";
 
@@ -63,8 +63,8 @@ class Key {
         ctx.drawImage(this.image, 0, 0, 70, 300, this.xpos, this.ypos, 50, 200);
       }
       else {
-        ctx.clearRect(this.xpos, this.ypos, 23, 200);
-        ctx.drawImage(this.image, 380, 0, 50, 300, this.xpos, this.ypos, 35, 200);
+        ctx2.clearRect(this.xpos, this.ypos, 23, 200);
+        ctx2.drawImage(this.image, 380, 0, 50, 300, this.xpos, this.ypos+1, 50, 140);
       }
     }
   };

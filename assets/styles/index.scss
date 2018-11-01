@@ -114,13 +114,20 @@ body {
   border-top: none;
   border-right: none;
   position: relative;
-  // background: #FFB5BC;
 }
 
-.canvas-container canvas {
+.canvas {
   position: absolute;
   bottom: 100px;
-  right: 120px ;
+  right: 60px ;
+}
+
+.canvas2 { 
+  position: absolute;
+  bottom: 100px;
+  right: 60px ;
+  background: transparent;
+  z-index: 1;
 }
 
 .canvas-container img {

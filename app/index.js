@@ -17,11 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log('webpack is working!');
 
   const canvasEl = document.getElementById('canvas');
+  const canvasEl2 = document.getElementById('canvas2');
   const ctx = canvasEl.getContext('2d');
+  const ctx2 = canvasEl2.getContext('2d');
 
   const startBtnEl = document.getElementById('start-btn');
 
-  const level = new Level(LEVELS[0], ctx);
+  const level = new Level(LEVELS[0], ctx, ctx2);
   startBtnEl.addEventListener('click', level.play);
 
 });
