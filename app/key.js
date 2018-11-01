@@ -16,27 +16,23 @@ class Key {
 
 
   onKeyDown(ctx) {
-    // this.audio = new Audio();
-    // this.audio.src = `../assets/sounds/${this.note}.wav`;
     if (!this.audio) return;
     this.audio.currentTime = 0;
     this.audio.play();
-    
-    console.log('key down')
+
     this.image = new Image();
     this.image.src = "../assets/images/spritesheet.png";
     
     
     this.image.onload = () => {
       if (this.color === "white") {
-        console.log('redrawing')
         ctx.drawImage(this.image, 100, 0, 70, 300, this.xpos, this.ypos, 50, 200);
       }
       else {
         ctx.drawImage(this.image, 440, 0, 50, 300, this.xpos, this.ypos, 35, 200);
       }
     }
-    window.setTimeout(() => this.draw(ctx), 100 );
+    window.setTimeout(() => this.draw(ctx), 200 );
   }
 
 
@@ -48,7 +44,6 @@ class Key {
 
     this.image.onload = () => {
       if (this.color === "white") {
-        console.log("clear")
         ctx.clearRect(this.xpos, this.ypos, 50, 200);
         ctx.drawImage(this.image, 0, 0, 70, 300, this.xpos, this.ypos, 50, 200);
       }

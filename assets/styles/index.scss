@@ -33,6 +33,7 @@ body {
   bottom: -50px;
   left: -25px;
   width: 600px;
+  z-index: -1;
 }
 
 .instructions button {
@@ -53,10 +54,14 @@ body {
   color: white;
 }
 
+.instructions button:focus, .instructions button:active {
+  outline: none;
+}
+
 .instructions-box {
   font-family: 'Hammersmith One';
   font-size: 17px;
-  padding: 60px;
+  padding: 70px;
   padding-top: 35px;
   line-height: 2em;
   text-align: center;
@@ -64,9 +69,9 @@ body {
 
 .canvas-container {
   width: 800px !important;
-  height: 400px;
+  height: 500px;
   background: white;
-  border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 10px;
   border-top: none;
   border-right: none;
   position: relative;
@@ -76,4 +81,11 @@ body {
   position: absolute;
   bottom: 50px;
   right: 120px ;
+}
+
+.canvas-container img {
+  position: absolute;
+  width: 550px;
+  bottom: 13px;
+  right: 105px;
 }

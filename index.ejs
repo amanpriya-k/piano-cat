@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title>Piano Cat</title>
     <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
     <link rel="icon" href="./assets/images/catty.png">
 </head>
 <body>
     <div class="main-div">
         <div class="instructions" id="instructions">
-            <h1>Learn Piano!</h1>
-            <img src="./assets/images/cat-w-textbox.png">
-            <div class="instructions-box" id="instructions-el"></div>
+            <h1> piano cat!</h1>
+            <img src="./assets/images/piano-cat.png">
+            <div class="instructions-box" id="instructions-el">
+                Hi there! Thanks for stopping by. I'm going to teach you the notes of a piano, then some chords, and then we'll play a fun song!
+                Hit the start button to go to the first level.
+            </div>
             <button id="start-btn"> start </button>
         </div>
     
         <div class="canvas-container">
-            <canvas width="470" height="210" id="canvas"></canvas>
+            <canvas width="520" height="210" id="canvas"></canvas>
+            <img src="./assets/images/keyhelper.png">
         </div>
     </div>
 </body>

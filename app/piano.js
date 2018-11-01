@@ -16,35 +16,38 @@ class Piano {
       case "e":
         this.keys.cS.onKeyDown(ctx);
         break;
-      case "f":
+      case "d":
         this.keys.d.onKeyDown(ctx);
         break;
-      case "t":
+      case "r":
         this.keys.dS.onKeyDown(ctx);
         break;
-      case "g":
+      case "f":
         this.keys.e.onKeyDown(ctx);
         break;
-      case "h":
+      case "g":
         this.keys.f.onKeyDown(ctx);
         break;
-      case "u":
+      case "y":
         this.keys.fS.onKeyDown(ctx);
         break;
-      case "j":
+      case "h":
         this.keys.g.onKeyDown(ctx);
         break;
-      case "i":
+      case "u":
         this.keys.gS.onKeyDown(ctx);
         break;
-      case "k":
+      case "j":
         this.keys.a.onKeyDown(ctx);
         break;
-      case "o":
+      case "i":
         this.keys.aS.onKeyDown(ctx);
         break;
-      case "l":
+      case "k":
         this.keys.b.onKeyDown(ctx);
+        break;
+      case "l":
+        this.keys.hiC.onKeyDown(ctx);
         break;
     }
   }
@@ -62,6 +65,7 @@ class Piano {
     this.keys.a = new Key(342, 0, "a", "white")
     this.keys.aS = new Key(392, 0, "asharp", "black")
     this.keys.b = new Key(415, 0, "b", "white")
+    this.keys.hiC = new Key(465, 0, "hic", "white")
   }
 
   draw(ctx) {
