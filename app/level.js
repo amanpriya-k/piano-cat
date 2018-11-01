@@ -43,6 +43,7 @@ class Level {
   }
 
   demoSounds() {
+    debugger
     this.notes.forEach(
       (note, idx) => {
         let timeout = (idx + 1) * 1000;
