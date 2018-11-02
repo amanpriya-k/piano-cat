@@ -92,6 +92,12 @@ module.exports = {
                 options: {
                     name: '[path][name].[ext]'
                 }
+            },
+
+            // SOUNDS
+            {
+                test: /\.wav$/,
+                loader: 'file-loader',
             }
         ]
     }
