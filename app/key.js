@@ -28,7 +28,7 @@ class Key {
     this.audio.play();
 
     this.image = new Image();
-    this.image.src = "../assets/images/spritesheet.png";
+    this.image.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
     
     const letter = document.getElementById('letter-shower');
     letter.innerHTML = this.name;
