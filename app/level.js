@@ -1,26 +1,17 @@
 import Piano from './piano';
 
-const LEVELS = [
-  {
-    number: 1,
-    notes: ['s', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play the same notes."
-  },
-  {
-    number: 2,
-    notes: ['s', 'f', 'h'],
-    instructions: 'Great job! In this level, you will learn to play a C major chord.'
-  }
-]
 
 class Level {
   
-  constructor({ number, notes, instructions }, ctx, ctx2) {
+  constructor({ number, notes, timeouts, instructions }, ctx, ctx2) {
     this.number = number;
     this.notes = notes;
+    this.timeouts = timeouts;
     this.instructions = instructions;
     this.ctx = ctx;
     this.ctx2 = ctx2;
+    this.lettersPressed = [];
+
     this.instructionsEl = document.getElementById('instructions-el');
     this.startBtnEl = document.getElementById('start-btn');
     this.demoBtnEl = document.getElementById('demo-btn');
@@ -37,18 +28,20 @@ class Level {
     this.piano = new Piano();
     this.piano.draw(ctx, ctx2);
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keypress', (e) => {
       this.piano.handleKeyDown(e.key, ctx, ctx2, "green")
     }); 
   }
 
-  newLevel({ number, notes, instructions }) {
-    debugger
+  newLevel({ number, notes, timeouts, instructions }) {
+    // debugger
     this.startBtnEl.disabled = true;
     this.demoBtnEl.disabled = true;
     this.number = number;
     this.notes = notes;
+    this.timeouts = timeouts;
     this.instructions = instructions;
+    this.lettersPressed = [];
   }
 
   displayInstructions() {
@@ -74,43 +67,66 @@ class Level {
   }
 
   startListening() {
+    // debugger
+    console.log('listening')
     if (this.number === 0) {
       this.startBtnEl.disabled = false;
       return;
     }
+    this.lettersPressed = [];
     this.messageEl.innerHTML = `level ${this.number} - your turn!`
-    let lettersPressed = [];
-    document.addEventListener('keydown', (e) => {
-      lettersPressed.push(e.key);
-      let color;
-      if (this.notes[lettersPressed.length - 1] === e.key) {
-        color = 'green';
-        this.messageEl.innerHTML = "nice!"
-        this.messageEl.classList.add('good');
-      } else {
-        color = 'red';
-        this.messageEl.innerHTML = "uh oh - start over!"
-        this.messageEl.classList.add('bad');
-        lettersPressed = [];
-      }
 
-      this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
-      if (lettersPressed.length === this.notes.length) {
+    document.addEventListener('keypress', (e) => 
+    {
+      e.stopPropagation();
+      e.preventDefault(); 
+      if (this.lettersPressed.length != this.notes.length) {
+
+          debugger
+          this.lettersPressed.push(e.key);
+          let color;
+
+          if (this.notes[this.lettersPressed.length - 1] != e.key) {
+            debugger
+            color = 'red';
+            this.messageEl.innerHTML = "uh oh - start over!"
+            this.messageEl.classList.remove('good');
+            this.messageEl.classList.add('bad');
+            this.lettersPressed = [];
+          } else {
+            color = 'green';
+            this.messageEl.innerHTML = "nice!"
+            this.messageEl.classList.remove('bad');
+            this.messageEl.classList.add('good');
+          }
+
+          this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
+      } 
+
+      if (this.lettersPressed.length === this.notes.length) {
         this.startBtnEl.disabled = false;
         this.messageEl.innerHTML = "great job! click \'next\' to go to the next level.";
         this.messageEl.classList.add('good');
+        return true;
       }
-    }); 
+      return true;
+    }
+    ); 
   }
 
   play() {
+    debugger
     this.displayInstructions();
     this.demoBtnEl.innerHTML = "play it again";
     this.demoBtnEl.disabled = true;
     this.demoBtnEl.addEventListener('click', this.demoSounds);
-    window.setTimeout(this.demoSounds, 1000);
-    const waitTime = 2000 + (this.notes.length * 1000);
+
+    window.setTimeout(this.demoSounds, 2000);
+
+    let waitTime = 3000 + (this.notes.length * 1000);
     window.setTimeout(this.startListening, waitTime);
+
+    return true;
   }
 
 }
