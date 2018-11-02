@@ -13,19 +13,19 @@ const LEVELS = [
   { number: 1, 
        demo: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
        notes: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
-       timeouts: [2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000],
+       timeouts: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000],
        instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play <br> 'C D E F G A B'."
   },
   { number: 3,
        demo: [ 's', 'f', 'h', 's', 'f', 'h'],
        notes: [ 's', 'f', 'h'],
-       timeouts: [2000, 3000, 4000, 5000, 5000, 5000],
+       timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
     instructions: 'Great job! In this level, you will learn to play a C major chord. Play <br> \'C E G \''
   },
   { number: 4,
        demo: ['d', 'y', 'j', 'd', 'y', 'j'],
        notes: [ 'd', 'y', 'j'],
-       timeouts: [2000, 3000, 4000, 5000, 5000, 5000],
+       timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
        instructions: "Awesome! Now I'll show you a D chord. Play the notes <br> 'D F# A."
   },
   { number: 5,
