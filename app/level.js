@@ -119,9 +119,9 @@ class Level {
     this.demoBtnEl.disabled = true;
     this.demoBtnEl.addEventListener('click', this.demoSounds);
 
-    window.setTimeout(this.demoSounds, 2000);
+    window.setTimeout(this.demoSounds, 1000);
 
-    let waitTime = 3000 + (this.notes.length * 1000);
+    let waitTime = 2000 + (this.timeouts.slice(-1)[0] * 1000);
     window.setTimeout(this.startListening, waitTime);
 
     return true;

@@ -29,10 +29,10 @@ const LEVELS = [
        instructions: "Awesome! Now I'll show you a D chord. Play the notes <br> 'D F# A."
   },
   { number: 5,
-       demo: ['d', 'y', 'j', 'd', 'y', 'j'],
+       demo: ['l', 'k', 'j', 'h', 'g'],
        notes: [ 'd', 'y', 'j'],
-       timeouts: [2000, 3000, 4000, 5000, 5000, 5000],
-       instructions: "You're ready to start playing a song! Follow after me: <br> "
+       timeouts: [1000, 1750, 2500, 3250, 2550],
+       instructions: "You're ready to start playing a song! Follow after me: <br> 'C B A G F'"
   }
 ]
 window.LEVELS = LEVELS;
