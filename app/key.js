@@ -35,7 +35,7 @@ class Key {
     const letter = document.getElementById('letter-shower');
     letter.innerHTML = this.name;
     
-    this.image.onload = () => {
+    image1.onload = () => {
       if (this.color === "white") {
         if (newColor == "green") {
           ctx.drawImage(image1, 100, 0, 70, 300, this.xpos, this.ypos, 50, 200);
@@ -69,7 +69,7 @@ class Key {
     let image1 = new Image();
     image1.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
 
-    // this.image.onload = () => {
+    image1.onload = () => {
       if (this.color === "white") {
         // ctx.clearRect(this.xpos, this.ypos, 50, 200);
         ctx.drawImage(image1, 0, 0, 70, 300, this.xpos, this.ypos, 50, 200);
@@ -78,7 +78,7 @@ class Key {
         // ctx2.clearRect(this.xpos, this.ypos, 23, 200);
         ctx2.drawImage(image1, 380, 0, 50, 300, this.xpos, this.ypos+2, 50, 140);
       }
-    // }
+    }
   };
 
 }
