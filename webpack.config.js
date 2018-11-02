@@ -93,10 +93,13 @@ module.exports = {
                     name: '[path][name].[ext]'
                 }
             },
-            
+
             {
                 test: /\.(ogg|mp3|wav|mpe?g)$/i,
-                use: 'file-loader'
+                loader: 'file-loader',
+                options: {
+                    name: '[path][name].[ext]'
+                }
             }
 
             // // SOUNDS
