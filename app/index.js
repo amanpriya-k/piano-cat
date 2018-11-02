@@ -2,6 +2,10 @@ import 'styles/reset.scss'
 import 'styles/index.scss';
 
 import '../assets/images/catty-t.png';
+import '../assets/images/catty.png';
+
+import '../assets/images';
+import '../assets/sounds';
 
 import Level from './level';
 
