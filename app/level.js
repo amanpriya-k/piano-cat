@@ -3,8 +3,9 @@ import Piano from './piano';
 
 class Level {
   
-  constructor({ number, notes, timeouts, instructions }, ctx, ctx2) {
+  constructor({ number, demo, notes, timeouts, instructions }, ctx, ctx2) {
     this.number = number;
+    this.demo = demo;
     this.notes = notes;
     this.timeouts = timeouts;
     this.instructions = instructions;
@@ -33,11 +34,11 @@ class Level {
     }); 
   }
 
-  newLevel({ number, notes, timeouts, instructions }) {
-    // debugger
+  newLevel({ number, demo, notes, timeouts, instructions }) {
     this.startBtnEl.disabled = true;
     this.demoBtnEl.disabled = true;
     this.number = number;
+    this.demo = demo;
     this.notes = notes;
     this.timeouts = timeouts;
     this.instructions = instructions;
@@ -53,9 +54,9 @@ class Level {
   }
 
   demoSounds() {
-    this.notes.forEach(
+    this.demo.forEach(
       (note, idx) => {
-        let timeout = (idx + 1) * 1000;
+        let timeout = this.timeouts[idx]
         console.log(timeout);
         window.setTimeout(() => this.piano.handleKeyDown(note, this.ctx, this.ctx2, "green"), timeout)
       }
@@ -66,7 +67,6 @@ class Level {
   }
 
   startListening() {
-    // debugger
     console.log('listening')
     if (this.number === 0) {
       this.startBtnEl.disabled = false;
@@ -85,12 +85,10 @@ class Level {
       e.preventDefault();
       if (lettersPressed.length != this.notes.length) {
 
-        debugger
         lettersPressed.push(e.key);
         let color;
 
         if (this.notes[lettersPressed.length - 1] != e.key) {
-          // debugger
           color = 'red';
           this.messageEl.innerHTML = "uh oh - start over!"
           this.messageEl.classList.remove('good');
@@ -107,7 +105,6 @@ class Level {
       }
 
       if (lettersPressed.length === this.notes.length) {
-        debugger
         this.startBtnEl.disabled = false;
         this.messageEl.innerHTML = "great job! click \'next\' to go to the next level.";
         this.messageEl.classList.add('good');
@@ -117,7 +114,6 @@ class Level {
   }
 
   play() {
-    debugger
     this.displayInstructions();
     this.demoBtnEl.innerHTML = "play it again";
     this.demoBtnEl.disabled = true;

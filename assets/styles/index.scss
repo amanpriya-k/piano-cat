@@ -77,21 +77,6 @@ body {
   transition: .5s;
 }
 
-.demo-btn:hover {
-  cursor: pointer;
-  background: lightcoral;
-  color: white;
-}
-
-.start-btn:disabled, .demo-btn:disabled {
-  background: darkgrey;
-  color: white;
-}
-
-.start-btn:disabled:hover, .demo-btn:disabled:hover {
-    cursor: not-allowed;
-}
-
 .start-btn {
   position: absolute;
   bottom: -40px;
@@ -109,6 +94,22 @@ body {
   background: lightcoral;
   color: white;
 }
+
+.demo-btn:hover {
+  cursor: pointer;
+  background: lightcoral;
+  color: white;
+}
+
+.start-btn:disabled, .demo-btn:disabled {
+  background: darkgrey;
+  color: white;
+}
+
+.start-btn:disabled:hover, .demo-btn:disabled:hover {
+    cursor: not-allowed;
+}
+
 
 .instructions button:focus, .instructions button:active {
   outline: none;
