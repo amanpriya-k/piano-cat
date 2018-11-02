@@ -1,16 +1,18 @@
 import 'styles/reset.scss'
 import 'styles/index.scss';
 
-import * as Images from '../assets/images';
+// require('../assets/images');
+// require('../assets/sounds');
 
-import * as Sounds from '../assets/sounds';
-
-// import '../assets/images/catty-t.png';
-// import '../assets/images/catty.png';
-// import '../assets/images/gradient.png';
-// import '../assets/images/keyhelper.png';
-// import '../assets/images/piano-cat.png';
-// import '../assets/images/Relay-cat.png';
+import '../assets/images/catty-t.png';
+import '../assets/images/catty.png';
+import '../assets/images/gradient.png';
+import '../assets/images/keyhelper.png';
+import '../assets/images/piano-cat.png';
+import '../assets/images/spritesheet.png';
+import '../assets/images/spritesheet1.png';
+import '../assets/images/text-box.png';
+import '../assets/images/Wiretap.jpg';
 
 
 import Level from './level';
