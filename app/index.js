@@ -1,11 +1,17 @@
 import 'styles/reset.scss'
 import 'styles/index.scss';
 
-import '../assets/images/catty-t.png';
-import '../assets/images/catty.png';
+import * as Images from '../assets/images';
 
-import '../assets/images';
-import '../assets/sounds';
+import * as Sounds from '../assets/sounds';
+
+// import '../assets/images/catty-t.png';
+// import '../assets/images/catty.png';
+// import '../assets/images/gradient.png';
+// import '../assets/images/keyhelper.png';
+// import '../assets/images/piano-cat.png';
+// import '../assets/images/Relay-cat.png';
+
 
 import Level from './level';
 
