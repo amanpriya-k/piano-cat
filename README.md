@@ -18,8 +18,8 @@
 ## MVPs
 - [x] The keyboard keys are linked to the virtual piano keys, they play the appropriate note and change color when they are played.
 - [x] The instructions are shown on one side of the screen and the corresponding keys that should be played are signified. 
-- [ ] When they are correctly played, the user automatically completes the level, and has the option to move to the next level.
-- [ ] The user has the option to select the speed of the tutorials, and there are different songs you can learn to play
+- [x] When they are correctly played, the user automatically completes the level, and has the option to move to the next level.
+- [x] The user can re-demo the songs, and there are different songs you can learn to play and multiple levels.
 
 Bonus: 
 - [ ] Users can record and playback the song at the last level
@@ -50,11 +50,11 @@ Bonus:
 #### Day 3 - 10/31/18  
   - [x] Hard code in a basic set of levels
   - [x] Display corresponding instructions and keys for a level
-  - [ ] Set up level functionality, so users playing the correct keys completes a level
+  - [x] Set up level functionality, so users playing the correct keys completes a level
 
 #### Day 4 - 11/01/18  
-  - [ ] Users completing a level automatically loads the next level
-  - [ ] Users incorrectly playing the keys restarts the level
+  - [x] Users completing a level automatically loads the next level
+  - [x] Users incorrectly playing the keys restarts the level
 
 #### Day 5 - 11/02/18  
   - [ ] Improve styling
