@@ -27,6 +27,7 @@ class Key {
     this.audio.currentTime = 0;
     this.audio.play();
 
+    console.log('hey')
     let image1 = new Image();
     image1.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
 
