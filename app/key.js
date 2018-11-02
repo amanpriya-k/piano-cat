@@ -13,7 +13,8 @@ class Key {
 
     this.image = new Image();
     // this.image.src = "https://github.com/amanpriya-k/piano-cat/blob/master/assets/images/spritesheet.png";
-    this.image.src = "../assets/images/spritesheet.png";
+    // this.image.src = "../assets/images/spritesheet.png";
+    this.image.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
 
     this.onKeyDown = this.onKeyDown.bind(this);
     this.draw = this.draw.bind(this);
@@ -59,7 +60,8 @@ class Key {
   draw(ctx, ctx2) {
     this.image = new Image();
     // this.image.src = "https://github.com/amanpriya-k/piano-cat/blob/master/assets/images/spritesheet.png";
-    this.image.src = "../assets/images/spritesheet.png";
+    // this.image.src = "../assets/images/spritesheet.png";
+    this.image.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
 
     this.image.onload = () => {
       if (this.color === "white") {
