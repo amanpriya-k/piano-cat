@@ -58,7 +58,8 @@ class Key {
 
   draw(ctx, ctx2) {
     this.image = new Image();
-    this.image.src = "../assets/images/spritesheet.png";
+    this.image.src = "https://github.com/amanpriya-k/piano-cat/blob/master/assets/images/spritesheet.png";
+    // this.image.src = "../assets/images/spritesheet.png";
 
     this.image.onload = () => {
       if (this.color === "white") {
