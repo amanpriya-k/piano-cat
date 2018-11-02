@@ -68,7 +68,7 @@ const CURRENT_LEVEL = 0;
 window.CURRENT_LEVEL = CURRENT_LEVEL;
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log('webpack is working!');
+  console.log('webpack is working! 1');
 
   const canvasEl = document.getElementById('canvas');
   const canvasEl2 = document.getElementById('canvas2');
