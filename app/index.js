@@ -5,24 +5,40 @@ import Level from './level';
 
 const LEVELS = [
   { number: 0,
+      demo: [],
       notes: [],
+      timeouts: [],
       instructions: "How To Play: There are 5 levels of the game! In each level you will learn a basic piano skill. I will play the notes for you, and you can play them back to me to go to the next level!"
   },
   { number: 1, 
+       demo: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
        notes: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
-       instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play the same notes."
+       timeouts: [2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000],
+       instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play <br> 'C D E F G A B'."
   },
-  { number: 2,
+  { number: 3,
+       demo: [ 's', 'f', 'h', 's', 'f', 'h'],
        notes: [ 's', 'f', 'h'],
-       instructions: 'Great job! In this level, you will learn to play a C major chord.'
+       timeouts: [2000, 3000, 4000, 5000, 5000, 5000],
+    instructions: 'Great job! In this level, you will learn to play a C major chord. Play <br> \'C E G \''
+  },
+  { number: 4,
+       demo: ['d', 'y', 'j', 'd', 'y', 'j'],
+       notes: [ 'd', 'y', 'j'],
+       timeouts: [2000, 3000, 4000, 5000, 5000, 5000],
+       instructions: "Awesome! Now I'll show you a D chord. Play the notes <br> 'D F# A."
+  },
+  { number: 5,
+       demo: ['d', 'y', 'j', 'd', 'y', 'j'],
+       notes: [ 'd', 'y', 'j'],
+       timeouts: [2000, 3000, 4000, 5000, 5000, 5000],
+       instructions: "You're ready to start playing a song! Follow after me: <br> "
   }
 ]
 window.LEVELS = LEVELS;
 
 const CURRENT_LEVEL = 0;
 window.CURRENT_LEVEL = CURRENT_LEVEL;
-
-// const HOW_TO_PLAY = "How To Play: There are 5 levels of the game! In each level you will learn a basic piano skill. I will play the notes for you, and you can play them back to me to go to the next level!";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log('webpack is working!');
@@ -35,26 +51,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const startBtnEl = document.getElementById('start-btn');
   const demoBtnEl = document.getElementById('demo-btn');
   demoBtnEl.classList.add('hidden');
-
+  
   const level = new Level(LEVELS[0], ctx, ctx2);
-
-  // global variable of 'levels'
-  // global variable of current level
-  // function attached to next btn that 
-
-  // demoBtnEl.addEventListener('click', () => {
-  //   document.getElementById('instructions-el').innerHTML = HOW_TO_PLAY;
-  // })
-
+  
   startBtnEl.addEventListener('click', () => {
+    // window.THROTTLE = true;
+    // if (window.CURRENT_LEVEL >= 1 ) {
+    //   const startBtnEl = document.getElementById('start-btn');
+    //   startBtnEl.parentNode.removeChild(startBtnEl);
+    // }
+    // if (!window.THROTTLE || window.CURRENT_LEVEL == 0) {
+      if (window.CURRENT_LEVEL != 0) startBtnEl.disabled = true;
       nextBtn(level);
+    //   if (window.CURRENT_LEVEL != 0) {
+    //     window.THROTTLE = true;
+    //   }
+    // }
+
     }  
   );
-
 });
 
 const nextBtn = function(level) {
-  debugger
   if (window.CURRENT_LEVEL === 0) {
     level.play();
   } else {

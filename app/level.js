@@ -1,26 +1,17 @@
 import Piano from './piano';
 
-const LEVELS = [
-  {
-    number: 1,
-    notes: ['s', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
-    instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play the same notes."
-  },
-  {
-    number: 2,
-    notes: ['s', 'f', 'h'],
-    instructions: 'Great job! In this level, you will learn to play a C major chord.'
-  }
-]
 
 class Level {
   
-  constructor({ number, notes, instructions }, ctx, ctx2) {
+  constructor({ number, demo, notes, timeouts, instructions }, ctx, ctx2) {
     this.number = number;
+    this.demo = demo;
     this.notes = notes;
+    this.timeouts = timeouts;
     this.instructions = instructions;
     this.ctx = ctx;
     this.ctx2 = ctx2;
+
     this.instructionsEl = document.getElementById('instructions-el');
     this.startBtnEl = document.getElementById('start-btn');
     this.demoBtnEl = document.getElementById('demo-btn');
@@ -33,21 +24,23 @@ class Level {
     this.demoSounds = this.demoSounds.bind(this);
     this.displayInstructions = this.displayInstructions.bind(this);
     this.startListening = this.startListening.bind(this);
+    this.handleListen = this.handleListen.bind(this);
 
     this.piano = new Piano();
     this.piano.draw(ctx, ctx2);
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keypress', (e) => {
       this.piano.handleKeyDown(e.key, ctx, ctx2, "green")
     }); 
   }
 
-  newLevel({ number, notes, instructions }) {
-    debugger
+  newLevel({ number, demo, notes, timeouts, instructions }) {
     this.startBtnEl.disabled = true;
     this.demoBtnEl.disabled = true;
     this.number = number;
+    this.demo = demo;
     this.notes = notes;
+    this.timeouts = timeouts;
     this.instructions = instructions;
   }
 
@@ -61,9 +54,9 @@ class Level {
   }
 
   demoSounds() {
-    this.notes.forEach(
+    this.demo.forEach(
       (note, idx) => {
-        let timeout = (idx + 1) * 1000;
+        let timeout = this.timeouts[idx]
         console.log(timeout);
         window.setTimeout(() => this.piano.handleKeyDown(note, this.ctx, this.ctx2, "green"), timeout)
       }
@@ -74,33 +67,50 @@ class Level {
   }
 
   startListening() {
+    console.log('listening')
     if (this.number === 0) {
       this.startBtnEl.disabled = false;
       return;
     }
-    this.messageEl.innerHTML = `level ${this.number} - your turn!`
     let lettersPressed = [];
-    document.addEventListener('keydown', (e) => {
-      lettersPressed.push(e.key);
-      let color;
-      if (this.notes[lettersPressed.length - 1] === e.key) {
-        color = 'green';
-        this.messageEl.innerHTML = "nice!"
-        this.messageEl.classList.add('good');
-      } else {
-        color = 'red';
-        this.messageEl.innerHTML = "uh oh - start over!"
-        this.messageEl.classList.add('bad');
-        lettersPressed = [];
+    this.messageEl.innerHTML = `level ${this.number} - your turn!`
+
+    document.addEventListener('keypress', (e) => 
+      lettersPressed = this.handleListen(e, lettersPressed)
+    ); 
+  }
+
+  handleListen(e, lettersPressed) {
+      e.stopPropagation();
+      e.preventDefault();
+      if (lettersPressed.length != this.notes.length) {
+
+        lettersPressed.push(e.key);
+        let color;
+
+        if (this.notes[lettersPressed.length - 1] != e.key) {
+          color = 'red';
+          this.messageEl.innerHTML = "uh oh - start over!"
+          this.messageEl.classList.remove('good');
+          this.messageEl.classList.add('bad');
+          lettersPressed = [];
+        } else {
+          color = 'green';
+          this.messageEl.innerHTML = "nice!"
+          this.messageEl.classList.remove('bad');
+          this.messageEl.classList.add('good');
+        }
+
+        this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
       }
 
-      this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
       if (lettersPressed.length === this.notes.length) {
         this.startBtnEl.disabled = false;
         this.messageEl.innerHTML = "great job! click \'next\' to go to the next level.";
         this.messageEl.classList.add('good');
+        return lettersPressed;
       }
-    }); 
+      return lettersPressed;
   }
 
   play() {
@@ -108,9 +118,13 @@ class Level {
     this.demoBtnEl.innerHTML = "play it again";
     this.demoBtnEl.disabled = true;
     this.demoBtnEl.addEventListener('click', this.demoSounds);
-    window.setTimeout(this.demoSounds, 1000);
-    const waitTime = 2000 + (this.notes.length * 1000);
+
+    window.setTimeout(this.demoSounds, 2000);
+
+    let waitTime = 3000 + (this.notes.length * 1000);
     window.setTimeout(this.startListening, waitTime);
+
+    return true;
   }
 
 }
