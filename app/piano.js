@@ -65,7 +65,7 @@ class Piano {
     this.keys.a = new Key(250, 0, "a", "A", "white", "j")
     this.keys.aS = new Key(283, 0, "asharp", "A#", "black", "i");
     this.keys.b = new Key(300, 0, "b", "B", "white", "k");
-    this.keys.hiC = new Key(350, 0, "hic", "C", "white", "l");
+    this.keys.hiC = new Key(350, 0, "hiC", "C", "white", "l");
   }
 
   draw(ctx, ctx2) {

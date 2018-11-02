@@ -67,6 +67,7 @@ class Level {
   }
 
   startListening() {
+    debugger
     console.log('listening')
     if (this.number === 0) {
       this.startBtnEl.disabled = false;
@@ -84,6 +85,7 @@ class Level {
       e.stopPropagation();
       e.preventDefault();
       if (lettersPressed.length != this.notes.length) {
+        debugger
 
         lettersPressed.push(e.key);
         let color;
@@ -99,6 +101,7 @@ class Level {
           this.messageEl.innerHTML = "nice!"
           this.messageEl.classList.remove('bad');
           this.messageEl.classList.add('good');
+          debugger
         }
 
         this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
@@ -114,6 +117,7 @@ class Level {
   }
 
   play() {
+    // debugger
     this.displayInstructions();
     this.demoBtnEl.innerHTML = "play it again";
     this.demoBtnEl.disabled = true;
@@ -121,7 +125,7 @@ class Level {
 
     window.setTimeout(this.demoSounds, 1000);
 
-    let waitTime = 2000 + (this.timeouts.slice(-1)[0] * 1000);
+    let waitTime = 2000 + (this.timeouts.slice(-1)[0]);
     window.setTimeout(this.startListening, waitTime);
 
     return true;

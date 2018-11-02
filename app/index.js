@@ -37,29 +37,29 @@ const LEVELS = [
       timeouts: [],
       instructions: "How To Play: There are 5 levels of the game! In each level you will learn a basic piano skill. I will play the notes for you, and you can play them back to me to go to the next level!"
   },
-  { number: 1, 
-       demo: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
-       notes: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
-       timeouts: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000],
-       instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play <br> 'C D E F G A B'."
-  },
-  { number: 3,
-       demo: [ 's', 'f', 'h', 's', 'f', 'h'],
-       notes: [ 's', 'f', 'h'],
-       timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
-    instructions: 'Great job! In this level, you will learn to play a C major chord. Play <br> \'C E G \''
-  },
-  { number: 4,
-       demo: ['d', 'y', 'j', 'd', 'y', 'j'],
-       notes: [ 'd', 'y', 'j'],
-       timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
-       instructions: "Awesome! Now I'll show you a D chord. Play the notes <br> 'D F# A."
-  },
+  // { number: 1, 
+  //      demo: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
+  //      notes: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
+  //      timeouts: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000],
+  //      instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play <br> 'C D E F G A B'."
+  // },
+  // { number: 3,
+  //      demo: [ 's', 'f', 'h', 's', 'f', 'h'],
+  //      notes: [ 's', 'f', 'h'],
+  //      timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
+  //   instructions: 'Great job! In this level, you will learn to play a C major chord. Play <br> \'C E G \''
+  // },
+  // { number: 4,
+  //      demo: ['d', 'y', 'j', 'd', 'y', 'j'],
+  //      notes: [ 'd', 'y', 'j'],
+  //      timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
+  //      instructions: "Awesome! Now I'll show you a D chord. Play the notes <br> 'D F# A."
+  // },
   { number: 5,
-       demo: ['l', 'k', 'j', 'h', 'g'],
-       notes: [ 'd', 'y', 'j'],
-       timeouts: [1000, 1750, 2500, 3250, 2550],
-       instructions: "You're ready to start playing a song! Follow after me: <br> 'C B A G F'"
+       demo: ['l', 'k', 'j', 'h', 'g',  'h', 'j', 'l',   'k', 'j', 'h', 'g', 'd'],
+    notes: ['l', 'k', 'j', 'h', 'g', 'h', 'j', 'l', 'k', 'j', 'h', 'g', 'd'],
+    timeouts: [1000, 1750, 2500, 3250, 3500,    4500, 5000, 5500,   6250, 7000, 7500, 8250, 9000 ],
+       instructions: "You're ready to start playing a song! This one's a little harder - follow after me: <br> 'C B A G F'"
   }
 ]
 window.LEVELS = LEVELS;
