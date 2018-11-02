@@ -10,7 +10,8 @@ module.exports = merge(webpackConfig, {
     output: {
         path: path.join(__dirname, 'build'),
         // path: path.join(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js'
+        // filename: '[name].[chunkhash].js'
+        filename: '[name].js'
     },
 
     plugins: [
