@@ -12,8 +12,9 @@ class Key {
     this.audio.src = `../assets/sounds/${this.note}.wav`;
 
     this.image = new Image();
-    this.image.src = "../assets/images/spritesheet.png";
-    
+    this.image.src = "https://github.com/amanpriya-k/piano-cat/blob/master/assets/images/spritesheet.png";
+    // this.image.src = "../assets/images/spritesheet.png";
+
     this.onKeyDown = this.onKeyDown.bind(this);
     this.draw = this.draw.bind(this);
   };
