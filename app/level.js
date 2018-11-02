@@ -23,7 +23,11 @@ class Level {
     this.ctx2 = ctx2;
     this.instructionsEl = document.getElementById('instructions-el');
     this.startBtnEl = document.getElementById('start-btn');
+    this.demoBtnEl = document.getElementById('demo-btn');
     this.messageEl = document.getElementById('message-box');
+
+    this.startBtnEl.innerHTML = `next`;
+    if (this.number != 0) this.startBtnEl.disabled = true;
 
     this.play = this.play.bind(this);
     this.demoSounds = this.demoSounds.bind(this);
@@ -38,9 +42,22 @@ class Level {
     }); 
   }
 
+  newLevel({ number, notes, instructions }) {
+    debugger
+    this.startBtnEl.disabled = true;
+    this.demoBtnEl.disabled = true;
+    this.number = number;
+    this.notes = notes;
+    this.instructions = instructions;
+  }
+
   displayInstructions() {
-    this.messageEl.innerHTML = `level ${this.number} - watch this!`
     this.instructionsEl.innerHTML = this.instructions;
+    if (this.number === 0) {
+      this.messageEl.innerHTML = `try out the piano or click next to start!`
+      return;
+    }
+    this.messageEl.innerHTML = `level ${this.number}`
   }
 
   demoSounds() {
@@ -48,25 +65,19 @@ class Level {
       (note, idx) => {
         let timeout = (idx + 1) * 1000;
         console.log(timeout);
-        window.setTimeout(() => this.piano.handleKeyDown(note, this.ctx, "green"), timeout)
+        window.setTimeout(() => this.piano.handleKeyDown(note, this.ctx, this.ctx2, "green"), timeout)
       }
     );
-  }
-
-  setButton() {
-    this.startBtnEl.innerHTML = `next`;
-
-    this.startBtnEl.disabled = true;
-    this.startBtnEl.classList.remove('start-btn');
-    this.startBtnEl.classList.add('start-btn-disabled');
-
-    let nextLevel = new Level(LEVELS[this.number], this.ctx);
-    this.startBtnEl.addEventListener(
-      'click', nextLevel.play
-    )
+    if (this.number != 0) {
+      this.demoBtnEl.disabled = false;
+    }
   }
 
   startListening() {
+    if (this.number === 0) {
+      this.startBtnEl.disabled = false;
+      return;
+    }
     this.messageEl.innerHTML = `level ${this.number} - your turn!`
     let lettersPressed = [];
     document.addEventListener('keydown', (e) => {
@@ -86,8 +97,6 @@ class Level {
       this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
       if (lettersPressed.length === this.notes.length) {
         this.startBtnEl.disabled = false;
-        this.startBtnEl.classList.add('start-btn');
-        this.startBtnEl.classList.remove('start-btn-disabled');
         this.messageEl.innerHTML = "great job! click \'next\' to go to the next level.";
         this.messageEl.classList.add('good');
       }
@@ -96,9 +105,11 @@ class Level {
 
   play() {
     this.displayInstructions();
-    this.setButton();
-    window.setTimeout(this.demoSounds, 4000);
-    const waitTime = 5000 + (this.notes.length * 1000);
+    this.demoBtnEl.innerHTML = "play it again";
+    this.demoBtnEl.disabled = true;
+    this.demoBtnEl.addEventListener('click', this.demoSounds);
+    window.setTimeout(this.demoSounds, 1000);
+    const waitTime = 2000 + (this.notes.length * 1000);
     window.setTimeout(this.startListening, waitTime);
   }
 

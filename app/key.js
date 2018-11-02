@@ -38,9 +38,9 @@ class Key {
       }
       else {
         if (newColor == "green") {
-          ctx2.drawImage(this.image, 440, 0, 50, 300, this.xpos, this.ypos+1, 50, 140);
+          ctx2.drawImage(this.image, 440, 0, 50, 300, this.xpos, this.ypos+2, 50, 140);
         } else {
-          ctx2.drawImage(this.image, 503, 0, 50, 300, this.xpos, this.ypos+1, 50, 140);
+          ctx2.drawImage(this.image, 503, 0, 50, 300, this.xpos, this.ypos+2, 50, 140);
         }
       }
     }
@@ -59,12 +59,12 @@ class Key {
 
     this.image.onload = () => {
       if (this.color === "white") {
-        ctx.clearRect(this.xpos, this.ypos, 50, 200);
+        // ctx.clearRect(this.xpos, this.ypos, 50, 200);
         ctx.drawImage(this.image, 0, 0, 70, 300, this.xpos, this.ypos, 50, 200);
       }
       else {
-        ctx2.clearRect(this.xpos, this.ypos, 23, 200);
-        ctx2.drawImage(this.image, 380, 0, 50, 300, this.xpos, this.ypos+1, 50, 140);
+        // ctx2.clearRect(this.xpos, this.ypos, 23, 200);
+        ctx2.drawImage(this.image, 380, 0, 50, 300, this.xpos, this.ypos+2, 50, 140);
       }
     }
   };

@@ -65,11 +65,38 @@ body {
   text-align: center;
 }
 
+.demo-btn {
+  position: absolute;
+  bottom: -100px;
+  right: 60px;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  font-family: 'Hammersmith One';
+  font-size: 20px;
+  transition: .5s;
+}
+
+.demo-btn:hover {
+  cursor: pointer;
+  background: lightcoral;
+  color: white;
+}
+
+.start-btn:disabled, .demo-btn:disabled {
+  background: darkgrey;
+  color: white;
+}
+
+.start-btn:disabled:hover, .demo-btn:disabled:hover {
+    cursor: not-allowed;
+}
+
 .start-btn {
   position: absolute;
   bottom: -40px;
   right: 60px;
-  width: 110px;
+  width: 150px;
   height: 40px;
   border-radius: 20px;
   font-family: 'Hammersmith One';
@@ -83,24 +110,6 @@ body {
   color: white;
 }
 
-.start-btn-disabled {
-  position: absolute;
-  bottom: -40px;
-  right: 60px;
-  width: 110px;
-  height: 40px;
-  border-radius: 20px;
-  font-family: 'Hammersmith One';
-  font-size: 20px;
-  background: darkgrey;
-  color: white;
-  transition: .5s;
-}
-
-.start-btn-disabled:hover {
-  cursor: not-allowed;
-}
-
 .instructions button:focus, .instructions button:active {
   outline: none;
 }
@@ -111,6 +120,7 @@ body {
   height: 500px;
   background: white;
   border-bottom-left-radius: 10px;
+  border: 8px solid black;
   border-top: none;
   border-right: none;
   position: relative;
@@ -159,4 +169,8 @@ body {
 
 .good {
   color: #16BD99;
+}
+
+.hidden {
+  display: none;
 }
