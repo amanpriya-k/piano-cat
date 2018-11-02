@@ -1,6 +1,8 @@
 import 'styles/reset.scss'
 import 'styles/index.scss';
 
+import '../assets/images/catty-t.png';
+
 import Level from './level';
 
 const LEVELS = [
