@@ -10,12 +10,6 @@ class Key {
     
     this.audio = new Audio();
     this.audio.src = `https://raw.githubusercontent.com/amanpriya-k/piano-cat/master/assets/sounds/${this.note}.wav`;
-    // this.audio.src = `../assets/sounds/${this.note}.wav`;
-
-    // this.image = new Image();
-    // this.image.src = "https://github.com/amanpriya-k/piano-cat/blob/master/assets/images/spritesheet.png";
-    // this.image.src = "../assets/images/spritesheet.png";
-    // this.image.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
 
     this.onKeyDown = this.onKeyDown.bind(this);
     this.draw = this.draw.bind(this);
@@ -61,21 +55,15 @@ class Key {
 
 
   draw(ctx, ctx2) {
-    // image1 = new Image();
-    // this.image.src = "https://github.com/amanpriya-k/piano-cat/blob/master/assets/images/spritesheet.png";
-    // this.image.src = "../assets/images/spritesheet.png";
-    // this.image.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
 
     let image1 = new Image();
     image1.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
 
     image1.onload = () => {
       if (this.color === "white") {
-        // ctx.clearRect(this.xpos, this.ypos, 50, 200);
         ctx.drawImage(image1, 0, 0, 70, 300, this.xpos, this.ypos, 50, 200);
       }
       else {
-        // ctx2.clearRect(this.xpos, this.ypos, 23, 200);
         ctx2.drawImage(image1, 380, 0, 50, 300, this.xpos, this.ypos+2, 50, 140);
       }
     }
