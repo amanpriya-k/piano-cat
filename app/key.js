@@ -9,7 +9,8 @@ class Key {
     this.key = key;
     
     this.audio = new Audio();
-    this.audio.src = `../assets/sounds/${this.note}.wav`;
+    this.audio.src = "https://raw.githubusercontent.com/amanpriya-k/piano-cat/master/assets/sounds/c.wav";
+    // this.audio.src = `../assets/sounds/${this.note}.wav`;
 
     this.image = new Image();
     // this.image.src = "https://github.com/amanpriya-k/piano-cat/blob/master/assets/images/spritesheet.png";
