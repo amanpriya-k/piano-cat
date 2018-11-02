@@ -94,11 +94,11 @@ module.exports = {
                 }
             },
 
-            // SOUNDS
-            {
-                test: /\.wav$/,
-                loader: 'file-loader',
-            }
+            // // SOUNDS
+            // {
+            //     test: /\.wav$/,
+            //     loader: 'file-loader',
+            // }
         ]
     }
 };
