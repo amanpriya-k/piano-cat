@@ -10,8 +10,10 @@ class Key {
     
     this.audio = new Audio();
     this.audio.src = `../assets/sounds/${this.note}.wav`;
+
     this.image = new Image();
     this.image.src = "../assets/images/spritesheet.png";
+    
     this.onKeyDown = this.onKeyDown.bind(this);
     this.draw = this.draw.bind(this);
   };
