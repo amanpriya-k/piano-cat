@@ -15,9 +15,14 @@ const LEVELS = [
        instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play 'C D E F G A B'."
   },
   { number: 2, 
-       notes: [ 'e', 'r', 'y', 'u', 'i', 'o' ], 
+       notes: [ 'e', 'r', 'y', 'u', 'i' ], 
        timeouts: [],
        instructions: "In the second level, you will learn the black keys. Play 'C# D# F# G# A#'."
+  },
+  { number: 3,
+       notes: [ 's', 'f', 'h'],
+       timeouts: [],
+       instructions: 'Great job! In this level, you will learn to play a C major chord.'
   },
   { number: 3,
        notes: [ 's', 'f', 'h'],
@@ -51,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //   startBtnEl.parentNode.removeChild(startBtnEl);
     // }
     // if (!window.THROTTLE || window.CURRENT_LEVEL == 0) {
+      startBtnEl.disabled = true;
       nextBtn(level);
     //   if (window.CURRENT_LEVEL != 0) {
     //     window.THROTTLE = true;

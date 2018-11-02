@@ -10,7 +10,6 @@ class Level {
     this.instructions = instructions;
     this.ctx = ctx;
     this.ctx2 = ctx2;
-    this.lettersPressed = [];
 
     this.instructionsEl = document.getElementById('instructions-el');
     this.startBtnEl = document.getElementById('start-btn');
@@ -24,6 +23,7 @@ class Level {
     this.demoSounds = this.demoSounds.bind(this);
     this.displayInstructions = this.displayInstructions.bind(this);
     this.startListening = this.startListening.bind(this);
+    this.handleListen = this.handleListen.bind(this);
 
     this.piano = new Piano();
     this.piano.draw(ctx, ctx2);
@@ -41,7 +41,6 @@ class Level {
     this.notes = notes;
     this.timeouts = timeouts;
     this.instructions = instructions;
-    this.lettersPressed = [];
   }
 
   displayInstructions() {
@@ -73,45 +72,48 @@ class Level {
       this.startBtnEl.disabled = false;
       return;
     }
-    this.lettersPressed = [];
+    let lettersPressed = [];
     this.messageEl.innerHTML = `level ${this.number} - your turn!`
 
     document.addEventListener('keypress', (e) => 
-    {
+      lettersPressed = this.handleListen(e, lettersPressed)
+    ); 
+  }
+
+  handleListen(e, lettersPressed) {
       e.stopPropagation();
-      e.preventDefault(); 
-      if (this.lettersPressed.length != this.notes.length) {
+      e.preventDefault();
+      if (lettersPressed.length != this.notes.length) {
 
-          debugger
-          this.lettersPressed.push(e.key);
-          let color;
+        debugger
+        lettersPressed.push(e.key);
+        let color;
 
-          if (this.notes[this.lettersPressed.length - 1] != e.key) {
-            debugger
-            color = 'red';
-            this.messageEl.innerHTML = "uh oh - start over!"
-            this.messageEl.classList.remove('good');
-            this.messageEl.classList.add('bad');
-            this.lettersPressed = [];
-          } else {
-            color = 'green';
-            this.messageEl.innerHTML = "nice!"
-            this.messageEl.classList.remove('bad');
-            this.messageEl.classList.add('good');
-          }
+        if (this.notes[lettersPressed.length - 1] != e.key) {
+          // debugger
+          color = 'red';
+          this.messageEl.innerHTML = "uh oh - start over!"
+          this.messageEl.classList.remove('good');
+          this.messageEl.classList.add('bad');
+          lettersPressed = [];
+        } else {
+          color = 'green';
+          this.messageEl.innerHTML = "nice!"
+          this.messageEl.classList.remove('bad');
+          this.messageEl.classList.add('good');
+        }
 
-          this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
-      } 
+        this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
+      }
 
-      if (this.lettersPressed.length === this.notes.length) {
+      if (lettersPressed.length === this.notes.length) {
+        debugger
         this.startBtnEl.disabled = false;
         this.messageEl.innerHTML = "great job! click \'next\' to go to the next level.";
         this.messageEl.classList.add('good');
-        return true;
+        return lettersPressed;
       }
-      return true;
-    }
-    ); 
+      return lettersPressed;
   }
 
   play() {
