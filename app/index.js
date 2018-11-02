@@ -9,24 +9,24 @@ import '../assets/images/catty.png';
 import '../assets/images/gradient.png';
 import '../assets/images/keyhelper.png';
 import '../assets/images/piano-cat.png';
-// import '../assets/images/spritesheet.png';
+import '../assets/images/spritesheet.png';
 import '../assets/images/spritesheet1.png';
 import '../assets/images/text-box.png';
 import '../assets/images/Wiretap.jpg';
 
-// import '../assets/sounds/a.wav';
-// import '../assets/sounds/asharp.wav';
-// import '../assets/sounds/b.wav';
-// import '../assets/sounds/c.wav';
-// import '../assets/sounds/csharp.wav';
-// import '../assets/sounds/d.wav';
-// import '../assets/sounds/dsharp.wav';
-// import '../assets/sounds/e.wav';
-// import '../assets/sounds/f.wav';
-// import '../assets/sounds/fsharp.wav';
-// import '../assets/sounds/g.wav';
-// import '../assets/sounds/gsharp.wav';
-// import '../assets/sounds/hiC.wav';
+import '../assets/sounds/a.wav';
+import '../assets/sounds/asharp.wav';
+import '../assets/sounds/b.wav';
+import '../assets/sounds/c.wav';
+import '../assets/sounds/csharp.wav';
+import '../assets/sounds/d.wav';
+import '../assets/sounds/dsharp.wav';
+import '../assets/sounds/e.wav';
+import '../assets/sounds/f.wav';
+import '../assets/sounds/fsharp.wav';
+import '../assets/sounds/g.wav';
+import '../assets/sounds/gsharp.wav';
+import '../assets/sounds/hiC.wav';
 
 import Level from './level';
 
