@@ -129,32 +129,40 @@ body {
 
 .canvas {
   position: absolute;
-  bottom: 100px;
+  bottom: 120px;
   right: 60px ;
 }
 
 .canvas2 { 
   position: absolute;
-  bottom: 100px;
+  bottom: 120px;
   right: 60px ;
-  // background: blue;
   background: transparent;
   z-index: 1;
+}
+.canvas3 { 
+  position: absolute;
+  bottom: 229px;
+  right: 178px ;
+  background: transparent;
+  z-index: 2;
 }
 
 .canvas-container img {
   position: absolute;
-  width: 550px;
-  bottom: 33px;
-  right: 105px;
+  height: 110px;
+  width: 430px;
+  bottom: 13px;
+  right: 165px;
 }
 
 .letter-shower {
   font-family: "Hammersmith One";
-  font-size: 100px;
+  font-size: 70px;
   text-align: center;
   padding-top: 20px;
   padding-right: 30px;
+  padding-bottom: 10px;
 }
 
 .message-box {
