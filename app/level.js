@@ -52,7 +52,7 @@ class Level {
       this.demoBtnEl.classList.add('hidden');
       return;
     }
-    if (this.number === 8) {
+    if (this.number === 7) {
       this.startBtnEl.innerHTML = 'start over!';
       this.messageEl.innerHTML = `thanks for playing!`
       this.demoBtnEl.classList.add('hidden');
@@ -61,7 +61,7 @@ class Level {
     if (this.number == 1) {
       this.demoBtnEl.classList.remove('hidden');
     }
-    this.messageEl.innerHTML = `level ${this.number}`
+    this.messageEl.innerHTML = `level ${this.number} - watch this`
   }
 
   demoSounds() {
@@ -77,7 +77,7 @@ class Level {
   }
 
   startListening() {
-    if (this.number === 0 || this.number == 8) {
+    if (this.number === 0 || this.number == 7) {
       this.startBtnEl.disabled = false;
       return;
     }
@@ -112,7 +112,7 @@ class Level {
         this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
       }
 
-      if (lettersPressed.length === this.notes.length) {
+      if (lettersPressed.toString() === this.notes.toString()) {
         this.startBtnEl.disabled = false;
         this.messageEl.innerHTML = "great job! click \'next\' to go to the next level.";
         this.messageEl.classList.add('good');

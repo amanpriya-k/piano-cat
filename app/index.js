@@ -19,39 +19,39 @@ const LEVELS = [
       demo: [],
       notes: [],
       timeouts: [],
-      instructions: "How To Play: There are 5 levels of the game! In each level you will learn a basic piano skill. I will play the notes for you, and you can play them back to me to go to the next level!"
+      instructions: "How To Play: There are 6 levels of the game! <br> I will play the notes for you, and you can play them back to me to go to the next level!"
   },
   { number: 1, 
        demo: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
        notes: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
        timeouts: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000],
-       instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. Watch the keys light up and play, and then using your keyboard, play <br> 'C D E F G A B'."
+       instructions: "Welcome! In this first level, you will be playing a simple major scale on the piano. <br> Watch the keys light up and play, and then using your keyboard, play <br> 'C D E F G A B'."
   },
-  { number: 3,
+  { number: 2,
        demo: [ 's', 'f', 'h', 's', 'f', 'h'],
        notes: [ 's', 'f', 'h'],
        timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
     instructions: 'Great job! In this level, you will learn to play a C major chord. Play <br> \'C E G \''
   },
-  { number: 4,
+  { number: 3,
        demo: ['d', 'y', 'j', 'd', 'y', 'j'],
        notes: [ 'd', 'y', 'j'],
        timeouts: [1000, 2000, 3000, 4000, 4000, 4000],
        instructions: "Awesome! Now I'll show you a D chord. Play the notes <br> 'D F# A."
   },
-  { number: 5,
+  { number: 4,
        demo: ['s', 's', 'h', 'h', 'j', 'j', 'h', 'g', 'g', 'f', 'f', 'd', 'd', 's'],
        notes: ['s', 's', 'h', 'h', 'j', 'j', 'h', 'g', 'g', 'f', 'f', 'd', 'd', 's'],
        timeouts: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8500, 9500, 10500, 11500, 12500, 13500, 14500],
        instructions: "Nice job! Let's try and play a simple song now. Play the notes <br> 'C C G G A A G' <br> 'F F E E D D C'."
   },
-  { number: 6,
+  { number: 5,
        demo: ['l', 'k', 'j', 'h', 'g',  'h', 'j', 'l',   'k', 'j', 'h', 'g', 'd'],
        notes: ['l', 'k', 'j', 'h', 'g', 'h', 'j', 'l', 'k', 'j', 'h', 'g', 'd'],
        timeouts: [1000, 1750, 2500, 3250, 3500,    4500, 5000, 5500,   6250, 7000, 7500, 8250, 9000 ],
        instructions: "Here's another song! This one's a little harder - follow after me: <br> 'C B A G F' <br> 'G A C' <br> 'B A G F D' "
   },
-  { number: 7,
+  { number: 6,
     demo: ['f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'f',      'd', 'd',
            'f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'd',      's', 's'],
     notes: ['f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'f', 'd', 'd',
@@ -60,11 +60,11 @@ const LEVELS = [
                   12500, 13250, 14000, 14750, 15500, 16250, 17000, 17750, 18500, 19250, 20000, 20750, 21500,    22500, 23000],
        instructions: "Ready for the last song? You can do it! <br> 'E E F G G F E D' <br> 'C C D E E - D D' <br> 'E E F G G F E D' <br> 'C C D E D - C C' "
   },
-  { number: 8,
+  { number: 7,
        demo: [],
        notes: [],
     timeouts: [],
-       instructions: "Yay! You completed all the levels! Thanks for playing - check out my other work through the links above! :)"
+    instructions: "Yay! You completed all the levels! Thanks for playing - check out my other work through the links above! /ᐠ｡ꞈ｡ᐟ\\ "
   }
 ]
 window.LEVELS = LEVELS;
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const nextBtn = function(level) {
-  if (window.CURRENT_LEVEL === 3) {
+  if (window.CURRENT_LEVEL === 8) {
     window.CURRENT_LEVEL = 0;
     level.newLevel(window.LEVELS[0]);
     level.play();
