@@ -65,27 +65,32 @@ body {
 
 .text {
   position: absolute;
-  bottom: -50px;
-  left: -75px;
-  width: 720px;
+  bottom: -20px;
+  left: 25px;
+  width: 500px;
+  height: 400px;
   z-index: -1;
 }
 
 .cat {
   position: absolute;
-  bottom: -90px;
+  bottom: -110px;
   left: 130px;
   width: 150px;
 }
 
 .instructions-box {
+  display: flex;
   position: absolute;
-  top: 70px;
+  bottom: 50px;
+  left: 75px;
+  width: 400px;
+  height: 320px;
   font-family: 'Hammersmith One';
   font-size: 20px;
-  width: 400px;
   line-height: 2em;
   text-align: center;
+  align-items: center;
 }
 
 .demo-btn {
