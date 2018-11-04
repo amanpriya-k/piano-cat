@@ -65,8 +65,9 @@ class Level {
   }
 
   demoSounds() {
-    if (!this.demoing) {
-      this.demoing = true;
+    if (!window.demoing && this.number != 0) {
+      this.messageEl.innerHTML = `level ${this.number} - watch this`
+      window.demoing = true;
       this.demo.forEach(
         (note, idx) => {
           let timeout = this.timeouts[idx]
@@ -74,8 +75,7 @@ class Level {
         }
       );
       if (this.number != 0) {
-        window.setTimeout(() => {this.demoBtnEl.disabled = false; this.demoing = false}, 500 + (this.timeouts.slice(-1)[0]))
-        // this.demoBtnEl.disabled = false;
+        window.setTimeout(() => this.demoBtnEl.disabled = false, 500 + (this.timeouts.slice(-1)[0]))
       }
     }
   }
@@ -84,21 +84,22 @@ class Level {
     if (this.number === 0 || this.number == window.LAST_LEVEL-1) {
       this.startBtnEl.disabled = false;
       return;
+    } else {
+      let lettersPressed = [];
+      this.messageEl.innerHTML = `level ${this.number} - your turn!`
+  
+      document.addEventListener('keypress', (e) => 
+        lettersPressed = this.handleListen(e, lettersPressed)
+      ); 
     }
-    if (this.demoing) {
-      return;
-    }
-    let lettersPressed = [];
-    this.messageEl.innerHTML = `level ${this.number} - your turn!`
-
-    document.addEventListener('keypress', (e) => 
-      lettersPressed = this.handleListen(e, lettersPressed)
-    ); 
   }
 
   handleListen(e, lettersPressed) {
       e.stopPropagation();
       e.preventDefault();
+      if (window.demoing) {
+        return;
+      }
       if (lettersPressed.length != this.notes.length) {
         lettersPressed.push(e.key);
         let color;
@@ -135,10 +136,9 @@ class Level {
     this.demoBtnEl.addEventListener('click', this.demoSounds);
 
     window.setTimeout(this.demoSounds, 500);
-    window.setTimeout(() => this.demoing = false, 500);
-
+    window.demoing = false;
     let waitTime = 1000 + (this.timeouts.slice(-1)[0]);
-    window.setTimeout(this.startListening, waitTime);
+    window.setTimeout(() => { window.demoing = false; this.startListening(); }, waitTime);
 
     return true;
   }
