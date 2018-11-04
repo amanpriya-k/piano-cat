@@ -50,6 +50,10 @@ class Level {
       this.messageEl.innerHTML = `try out the piano or click next to start!`
       return;
     }
+    if (this.number === 7) {
+      this.messageEl.innerHTML = `thanks for playing!`
+      return;
+    }
     this.messageEl.innerHTML = `level ${this.number}`
   }
 

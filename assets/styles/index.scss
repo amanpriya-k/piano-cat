@@ -140,15 +140,16 @@ body {
   background: transparent;
   z-index: 1;
 }
-.canvas3 { 
+
+.keylabel {
   position: absolute;
-  bottom: 229px;
-  right: 178px ;
-  background: transparent;
+  bottom: 269px;
+  right: 150px ;
   z-index: 2;
+  width: 452px;
 }
 
-.canvas-container img {
+.keyhelper {
   position: absolute;
   height: 110px;
   width: 430px;
