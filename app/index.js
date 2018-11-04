@@ -46,10 +46,13 @@ const LEVELS = [
        instructions: "Nice job! Let's try and play a simple song now. Play the notes <br> 'C C G G A A G' <br> 'F F E E D D C'."
   },
   { number: 5,
-       demo: ['l', 'k', 'j', 'h', 'g',  'h', 'j', 'l',   'k', 'j', 'h', 'g', 'd'],
-       notes: ['l', 'k', 'j', 'h', 'g', 'h', 'j', 'l', 'k', 'j', 'h', 'g', 'd'],
-       timeouts: [1000, 1750, 2500, 3250, 3500,    4500, 5000, 5500,   6250, 7000, 7500, 8250, 9000 ],
-       instructions: "Here's another song! This one's a little harder - follow after me: <br> 'C B A G F' <br> 'G A C' <br> 'B A G F D' "
+       demo: [ 'j', 'h', 'g', 'h', 'j', 'j', 'j', 'h', 'h', 'h', 'j', 'l', 'l', 
+               'j', 'h', 'g', 'h', 'j', 'j', 'j', 'j', 'h', 'h', 'j', 'h', 'g'],
+       notes: ['j', 'h', 'g', 'h', 'j', 'j', 'j', 'h', 'h', 'h', 'j', 'l', 'l',
+               'j', 'h', 'g', 'h', 'j', 'j', 'j', 'j', 'h', 'h', 'j', 'h', 'g'],
+       timeouts: [1000, 1750, 2500, 3250, 4000, 4750, 5500,    6500, 7250, 8000,   9000, 9750, 10500,
+                  11500, 12250, 13000, 13750,    14500, 15250, 16000, 16750,    17500, 18250,   19000, 19750, 20500 ],
+    instructions: "Here's another song! This one's a little harder - follow after me: <br> 'A G F G A A A' <br> 'G G G - A C C' <br> 'A G F G A A A A' <br> 'G G A G F' "
   },
   { number: 6,
     demo: ['f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'f',      'd', 'd',
