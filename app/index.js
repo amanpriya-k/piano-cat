@@ -1,9 +1,6 @@
 import 'styles/reset.scss'
 import 'styles/index.scss';
 
-// require('../assets/images');
-// require('../assets/sounds');
-
 import '../assets/images/catty-t.png';
 import '../assets/images/catty.png';
 import '../assets/images/gradient.png';
@@ -45,16 +42,25 @@ const LEVELS = [
   { number: 5,
        demo: ['s', 's', 'h', 'h', 'j', 'j', 'h', 'g', 'g', 'f', 'f', 'd', 'd', 's'],
        notes: ['s', 's', 'h', 'h', 'j', 'j', 'h', 'g', 'g', 'f', 'f', 'd', 'd', 's'],
-       timeouts: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000, 13000, 14000],
+       timeouts: [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8500, 9500, 10500, 11500, 12500, 13500, 14500],
        instructions: "Nice job! Let's try and play a simple song now. Play the notes <br> 'C C G G A A G' <br> 'F F E E D D C'."
   },
   { number: 6,
        demo: ['l', 'k', 'j', 'h', 'g',  'h', 'j', 'l',   'k', 'j', 'h', 'g', 'd'],
        notes: ['l', 'k', 'j', 'h', 'g', 'h', 'j', 'l', 'k', 'j', 'h', 'g', 'd'],
-    timeouts: [1000, 1750, 2500, 3250, 3500,    4500, 5000, 5500,   6250, 7000, 7500, 8250, 9000 ],
-       instructions: "You're ready to start playing a song! This one's a little harder - follow after me: <br> 'C B A G F'"
+       timeouts: [1000, 1750, 2500, 3250, 3500,    4500, 5000, 5500,   6250, 7000, 7500, 8250, 9000 ],
+       instructions: "Here's another song! This one's a little harder - follow after me: <br> 'C B A G F' <br> 'G A C' <br> 'B A G F D' "
   },
   { number: 7,
+    demo: ['f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'f',      'd', 'd',
+           'f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'd',      's', 's'],
+    notes: ['f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'f', 'd', 'd',
+            'f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'd', 's', 's'],
+       timeouts: [1000, 1750, 2500, 3250, 4000, 4750, 5500, 6250, 7000, 7750, 8500, 9250, 10000,    11000, 11500,
+                  12500, 13250, 14000, 14750, 15500, 16250, 17000, 17750, 18500, 19250, 20000, 20750, 21500,    22500, 23000],
+       instructions: "Ready for the last song? You can do it! <br> 'E E F G G F E D' <br> 'C C D E E - D D' <br> 'E E F G G F E D' <br> 'C C D E D - C C' "
+  },
+  { number: 8,
        demo: [],
        notes: [],
     timeouts: [],
@@ -88,6 +94,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const nextBtn = function(level) {
+  if (window.CURRENT_LEVEL === 3) {
+    window.CURRENT_LEVEL = 0;
+    level.newLevel(window.LEVELS[0]);
+    level.play();
+    return;
+  }
   if (window.CURRENT_LEVEL === 0) {
     level.play();
   } else {
