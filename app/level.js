@@ -52,7 +52,7 @@ class Level {
       this.demoBtnEl.classList.add('hidden');
       return;
     }
-    if (this.number === 7) {
+    if (this.number === window.LAST_LEVEL-1) {
       this.startBtnEl.innerHTML = 'start over!';
       this.messageEl.innerHTML = `thanks for playing!`
       this.demoBtnEl.classList.add('hidden');
@@ -65,20 +65,27 @@ class Level {
   }
 
   demoSounds() {
-    this.demo.forEach(
-      (note, idx) => {
-        let timeout = this.timeouts[idx]
-        window.setTimeout(() => this.piano.handleKeyDown(note, this.ctx, this.ctx2, "green"), timeout)
+    if (!this.demoing) {
+      this.demoing = true;
+      this.demo.forEach(
+        (note, idx) => {
+          let timeout = this.timeouts[idx]
+          window.setTimeout(() => this.piano.handleKeyDown(note, this.ctx, this.ctx2, "green"), timeout)
+        }
+      );
+      if (this.number != 0) {
+        window.setTimeout(() => {this.demoBtnEl.disabled = false; this.demoing = false}, 500 + (this.timeouts.slice(-1)[0]))
+        // this.demoBtnEl.disabled = false;
       }
-    );
-    if (this.number != 0) {
-      this.demoBtnEl.disabled = false;
     }
   }
 
   startListening() {
-    if (this.number === 0 || this.number == 7) {
+    if (this.number === 0 || this.number == window.LAST_LEVEL-1) {
       this.startBtnEl.disabled = false;
+      return;
+    }
+    if (this.demoing) {
       return;
     }
     let lettersPressed = [];
@@ -109,7 +116,7 @@ class Level {
           this.messageEl.classList.add('good');
         }
 
-        this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
+        this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, colors);
       }
 
       if (lettersPressed.toString() === this.notes.toString()) {
@@ -128,8 +135,9 @@ class Level {
     this.demoBtnEl.addEventListener('click', this.demoSounds);
 
     window.setTimeout(this.demoSounds, 500);
+    window.setTimeout(() => this.demoing = false, 500);
 
-    let waitTime = 2000 + (this.timeouts.slice(-1)[0]);
+    let waitTime = 1000 + (this.timeouts.slice(-1)[0]);
     window.setTimeout(this.startListening, waitTime);
 
     return true;

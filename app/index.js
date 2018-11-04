@@ -61,9 +61,21 @@ const LEVELS = [
             'f', 'f', 'g', 'h', 'h', 'g', 'f', 'd', 's', 's', 'd', 'f', 'd', 's', 's'],
        timeouts: [1000, 1750, 2500, 3250, 4000, 4750, 5500, 6250, 7000, 7750, 8500, 9250, 10000,    11000, 11500,
                   12500, 13250, 14000, 14750, 15500, 16250, 17000, 17750, 18500, 19250, 20000, 20750, 21500,    22500, 23000],
-       instructions: "Ready for the last song? You can do it! <br> 'E E F G G F E D' <br> 'C C D E E - D D' <br> 'E E F G G F E D' <br> 'C C D E D - C C' "
+       instructions: "This one's a little harder! You've got this! <br> 'E E F G G F E D' <br> 'C C D E E - D D' <br> 'E E F G G F E D' <br> 'C C D E D - C C' "
   },
   { number: 7,
+    demo: ['l', 'k', 'l', 'k', 'l', 'h', 'i', 'u', 'g',
+            's', 'g', 'u', 'h', 'g', 'h', 's',   
+             'f', 'h', 'u', 'h', 'g'     ],
+    notes: ['l', 'k', 'l', 'k', 'l', 'h', 'i', 'u', 'g',
+            's', 'g', 'u', 'h', 'g', 'h', 's',
+            'f', 'h', 'u', 'h', 'g'],
+       timeouts: [1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 
+                  6000, 6500, 7000, 7500, 8000, 8500, 9000,
+                  10000, 10500, 11000, 11500, 12000 ],
+       instructions: "Ready for the last song? You can do it! <br> 'C B C B C G A# G# F' <br> 'C F G# G F G C' <br> 'E G G# G F' "
+  },
+  { number: 8,
        demo: [],
        notes: [],
     timeouts: [],
@@ -74,6 +86,8 @@ window.LEVELS = LEVELS;
 
 const CURRENT_LEVEL = 0;
 window.CURRENT_LEVEL = CURRENT_LEVEL;
+
+window.LAST_LEVEL = window.LEVELS.length;
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log('webpack is working! !!!');
@@ -97,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const nextBtn = function(level) {
-  if (window.CURRENT_LEVEL === 8) {
+  if (window.CURRENT_LEVEL === window.LAST_LEVEL) {
     window.CURRENT_LEVEL = 0;
     level.newLevel(window.LEVELS[0]);
     level.play();
