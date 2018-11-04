@@ -116,7 +116,7 @@ class Level {
           this.messageEl.classList.add('good');
         }
 
-        this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, colors);
+        this.piano.handleKeyDown(e.key, this.ctx, this.ctx2, color);
       }
 
       if (lettersPressed.toString() === this.notes.toString()) {
