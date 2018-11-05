@@ -2,7 +2,7 @@
 # Piano Cat
 ---
 
-[Play with Piano Cat now](https://amanpriya-k.github.io/piano-cat/)
+[Play Piano Cat now](https://amanpriya-k.github.io/piano-cat/)
 
 Piano cat is a piano playing tutorial game. This game makes learning to play simple songs on piano a fun interactive experience.
 
