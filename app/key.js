@@ -23,7 +23,6 @@ class Key {
 
     let image1 = new Image();
     image1.src = "https://i.postimg.cc/sD4XSKwr/spritesheet.png";
-
     
     const letter = document.getElementById('letter-shower');
     letter.innerHTML = this.name;
