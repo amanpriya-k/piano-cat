@@ -12,19 +12,19 @@ The project was built in 10 days, and more features will be added over time.
 
 ---
 
-## Features
-
-- Users can play the virtual piano which covers 12 notes which are linked up to corresponding keys on the keyboard
-- Users will learn levels by watching the piano play a demo of the level's song, which they can replay as they need
-- Users can pass levels by playing back the song correctly, which allows them to move on to the next level
-
----
-
 ## Technologies
 
  - Vanilla JavaScript for game logic
  - HTML5 Canvas for rendering
  - Webpack to bundle various scripts into a single source
+
+---
+
+## Features
+
+- Users can play the virtual piano which covers 12 notes which are linked up to corresponding keys on the keyboard
+- Users will learn levels by watching the piano play a demo of the level's song, which they can replay as they need
+- Users can pass levels by playing back the song correctly, which allows them to move on to the next level
 
 ---
 
