@@ -19,7 +19,7 @@ const LEVELS = [
       demo: [],
       notes: [],
       timeouts: [],
-      instructions: "How To Play: There are 6 levels of the game! <br> I will play the notes for you, and you can play them back to me to go to the next level!"
+      instructions: "How To Play: There are 6 levels of the game! <br> I will play the notes for you, and you can play them back to me to go to the next level! Go ahead and try the piano out - remember, refer to the keyboard diagram to connect the notes to your keyboard."
   },
   { number: 1, 
        demo: [ 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l' ], 
